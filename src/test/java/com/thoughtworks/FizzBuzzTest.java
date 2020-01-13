@@ -28,4 +28,24 @@ public class FizzBuzzTest {
     assertEquals(BUZZ.getName(), fizzBuzz.say(5));
     assertEquals(WHIZZ.getName(), fizzBuzz.say(7));
   }
+
+  @Test
+  public void should_return_FizzBuzz_when_number_is_the_multiple_3_5_at_the_same_time() {
+    assertEquals(FIZZ.getName() + BUZZ.getName(), fizzBuzz.say(15));
+  }
+
+  @Test
+  public void should_return_BuzzWhizz_when_number_is_the_multiple_5_7_at_the_same_time() {
+    assertEquals(BUZZ.getName() + WHIZZ.getName(), fizzBuzz.say(35));
+  }
+
+  @Test
+  public void should_return_FizzWhizz_when_number_is_the_multiple_3_7_at_the_same_time() {
+    assertEquals(FIZZ.getName() + WHIZZ.getName(), fizzBuzz.say(21));
+  }
+
+  @Test
+  public void should_return_FizzBuzzWhizz_when_number_is_the_multiple_3_5_7_at_the_same_time() {
+    assertEquals(FIZZ.getName() + BUZZ.getName() + WHIZZ.getName(), fizzBuzz.say(105));
+  }
 }
