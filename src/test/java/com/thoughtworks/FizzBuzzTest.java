@@ -30,18 +30,8 @@ public class FizzBuzzTest {
   }
 
   @Test
-  public void should_return_FizzBuzz_when_number_is_the_multiple_3_5_at_the_same_time() {
-    assertEquals(FIZZ.getName() + BUZZ.getName(), fizzBuzz.say(15));
-  }
-
-  @Test
   public void should_return_FizzWhizz_when_number_is_the_multiple_3_7_at_the_same_time() {
     assertEquals(FIZZ.getName() + WHIZZ.getName(), fizzBuzz.say(21));
-  }
-
-  @Test
-  public void should_return_FizzBuzzWhizz_when_number_is_the_multiple_3_5_7_at_the_same_time() {
-    assertEquals(FIZZ.getName() + BUZZ.getName() + WHIZZ.getName(), fizzBuzz.say(105));
   }
 
   @Test
@@ -52,5 +42,10 @@ public class FizzBuzzTest {
   @Test
   public void should_ignore_the_rule_about_contain_3_and_multiple_3_when_number_contain_5() {
     assertEquals(BUZZ.getName() + WHIZZ.getName(), fizzBuzz.say(35));
+  }
+
+  @Test
+  public void should_ignore_the_rule_about_contain_5_and_multiple_5_when_number_contain_7() {
+    assertEquals(FIZZ.getName(), fizzBuzz.say(75));
   }
 }

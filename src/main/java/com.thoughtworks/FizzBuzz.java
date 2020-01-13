@@ -11,8 +11,15 @@ public class FizzBuzz {
 
   public String say(Integer number) {
     boolean multiple3 = number % 3 == 0;
+    boolean multiple5 = number % 5 == 0;
+    boolean multiple7 = number % 7 == 0;
     boolean isContain3 = number.toString().contains("3");
     boolean isContain5 = number.toString().contains("5");
+    boolean isContain7 = number.toString().contains("7");
+    if (isContain7) {
+      isContain5 = false;
+      multiple5 = false;
+    }
     if (isContain5) {
       isContain3 = false;
       multiple3 = false;
@@ -20,28 +27,17 @@ public class FizzBuzz {
     if (isContain3) {
       return format(FIZZ);
     }
-    if (number % 105 == 0) {
-      return format(FIZZ, BUZZ, WHIZZ);
-    }
-    if (number % 21 == 0) {
-      return format(FIZZ, WHIZZ);
-    }
-    if (number % 15 == 0) {
-      return format(FIZZ, BUZZ);
-    }
-    if (number % 35 == 0) {
-      return format(BUZZ, WHIZZ);
-    }
+    StringBuffer result = new StringBuffer();
     if (multiple3) {
-      return format(FIZZ);
+      result.append(FIZZ.toString());
     }
-    if (number % 5 == 0) {
-      return format(BUZZ);
+    if (multiple5) {
+      result.append(BUZZ.toString());
     }
-    if (number % 7 == 0) {
-      return format(WHIZZ);
+    if (multiple7) {
+      result.append(WHIZZ.toString());
     }
-    return number.toString();
+    return result.toString().isEmpty() ? number.toString() : result.toString();
   }
 
   private <T> String format(T... t) {
