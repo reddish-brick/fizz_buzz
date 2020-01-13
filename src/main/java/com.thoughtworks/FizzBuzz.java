@@ -24,7 +24,7 @@ public class FizzBuzz {
     if (isContain3) {
       return FIZZ.toString();
     }
-    StringBuffer result = new StringBuffer();
+    StringBuilder result = new StringBuilder();
     if (multiple3) {
       result.append(FIZZ.toString());
     }
