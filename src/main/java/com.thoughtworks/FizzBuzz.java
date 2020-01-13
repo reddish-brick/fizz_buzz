@@ -3,31 +3,41 @@ package com.thoughtworks;
 import static com.thoughtworks.Constant.BUZZ;
 import static com.thoughtworks.Constant.FIZZ;
 import static com.thoughtworks.Constant.WHIZZ;
+import static java.util.stream.Collectors.joining;
+
+import java.util.Arrays;
 
 public class FizzBuzz {
 
   public String say(Integer number) {
     if (number % 105 == 0) {
-      return String.format("%s%s%s", FIZZ.getName(), BUZZ.getName(), WHIZZ.getName());
+      return format(FIZZ, BUZZ, WHIZZ);
     }
     if (number % 21 == 0) {
-      return String.format("%s%s", FIZZ.getName(), WHIZZ.getName());
+      return format(FIZZ, WHIZZ);
     }
     if (number % 15 == 0) {
-      return String.format("%s%s", FIZZ.getName(), BUZZ.getName());
+      return format(FIZZ, BUZZ);
     }
     if (number % 35 == 0) {
-      return String.format("%s%s", BUZZ.getName(), WHIZZ.getName());
+      return format(BUZZ, WHIZZ);
     }
     if (number % 3 == 0) {
-      return FIZZ.getName();
+      return format(FIZZ);
     }
     if (number % 5 == 0) {
-      return BUZZ.getName();
+      return format(BUZZ);
     }
     if (number % 7 == 0) {
-      return WHIZZ.getName();
+      return format(WHIZZ);
     }
     return number.toString();
   }
+
+  private <T> String format(T... t) {
+    return Arrays.stream(t)
+        .map(Object::toString)
+        .collect(joining(""));
+  }
+
 }
