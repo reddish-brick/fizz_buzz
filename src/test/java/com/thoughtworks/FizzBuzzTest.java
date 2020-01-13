@@ -3,8 +3,10 @@ package com.thoughtworks;
 import static com.thoughtworks.Constant.BUZZ;
 import static com.thoughtworks.Constant.FIZZ;
 import static com.thoughtworks.Constant.WHIZZ;
+import static java.util.stream.Collectors.joining;
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +33,7 @@ public class FizzBuzzTest {
 
   @Test
   public void should_return_FizzWhizz_when_number_is_the_multiple_3_7_at_the_same_time() {
-    assertEquals(FIZZ.getName() + WHIZZ.getName(), fizzBuzz.say(21));
+    assertEquals(format(FIZZ,WHIZZ), fizzBuzz.say(21));
   }
 
   @Test
@@ -41,11 +43,17 @@ public class FizzBuzzTest {
 
   @Test
   public void should_ignore_the_rule_about_contain_3_and_multiple_3_when_number_contain_5() {
-    assertEquals(BUZZ.getName() + WHIZZ.getName(), fizzBuzz.say(35));
+    assertEquals(format(BUZZ,WHIZZ), fizzBuzz.say(35));
   }
 
   @Test
   public void should_ignore_the_rule_about_contain_5_and_multiple_5_when_number_contain_7() {
     assertEquals(FIZZ.getName(), fizzBuzz.say(75));
+  }
+
+  private <T> String format(T... t) {
+    return Arrays.stream(t)
+        .map(Object::toString)
+        .collect(joining(""));
   }
 }

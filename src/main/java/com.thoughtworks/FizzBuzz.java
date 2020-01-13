@@ -3,9 +3,6 @@ package com.thoughtworks;
 import static com.thoughtworks.Constant.BUZZ;
 import static com.thoughtworks.Constant.FIZZ;
 import static com.thoughtworks.Constant.WHIZZ;
-import static java.util.stream.Collectors.joining;
-
-import java.util.Arrays;
 
 public class FizzBuzz {
 
@@ -25,7 +22,7 @@ public class FizzBuzz {
       multiple3 = false;
     }
     if (isContain3) {
-      return format(FIZZ);
+      return FIZZ.toString();
     }
     StringBuffer result = new StringBuffer();
     if (multiple3) {
@@ -39,11 +36,4 @@ public class FizzBuzz {
     }
     return result.toString().isEmpty() ? number.toString() : result.toString();
   }
-
-  private <T> String format(T... t) {
-    return Arrays.stream(t)
-        .map(Object::toString)
-        .collect(joining(""));
-  }
-
 }
