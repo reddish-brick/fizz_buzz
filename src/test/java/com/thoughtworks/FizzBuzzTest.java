@@ -48,4 +48,9 @@ public class FizzBuzzTest {
   public void should_return_Fizz_when_number_contains_3() {
     assertEquals(FIZZ.getName(), fizzBuzz.say(13));
   }
+
+  @Test
+  public void should_ignore_the_rule_about_contain_3_and_multiple_3_when_number_contain_5() {
+    assertEquals(BUZZ.getName() + WHIZZ.getName(), fizzBuzz.say(35));
+  }
 }

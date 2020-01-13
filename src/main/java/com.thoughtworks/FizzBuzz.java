@@ -10,7 +10,13 @@ import java.util.Arrays;
 public class FizzBuzz {
 
   public String say(Integer number) {
+    boolean multiple3 = number % 3 == 0;
     boolean isContain3 = number.toString().contains("3");
+    boolean isContain5 = number.toString().contains("5");
+    if (isContain5) {
+      isContain3 = false;
+      multiple3 = false;
+    }
     if (isContain3) {
       return format(FIZZ);
     }
@@ -26,7 +32,7 @@ public class FizzBuzz {
     if (number % 35 == 0) {
       return format(BUZZ, WHIZZ);
     }
-    if (number % 3 == 0) {
+    if (multiple3) {
       return format(FIZZ);
     }
     if (number % 5 == 0) {
