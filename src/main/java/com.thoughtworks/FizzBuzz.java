@@ -10,6 +10,10 @@ import java.util.Arrays;
 public class FizzBuzz {
 
   public String say(Integer number) {
+    boolean isContain3 = number.toString().contains("3");
+    if (isContain3) {
+      return format(FIZZ);
+    }
     if (number % 105 == 0) {
       return format(FIZZ, BUZZ, WHIZZ);
     }
